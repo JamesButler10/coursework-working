@@ -193,6 +193,7 @@ public class GameEngine {
      * Y co-ordinates in the current level that entities can be spawned in.
      */
     private ArrayList<Point> getSpawns() {
+        System.out.println("hi");
         ArrayList<Point> spawns = new ArrayList<Point>(); 
         for (int i = 0; i < GRID_WIDTH; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {                
