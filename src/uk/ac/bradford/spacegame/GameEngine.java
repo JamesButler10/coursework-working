@@ -194,15 +194,15 @@ public class GameEngine {
      */
     private ArrayList<Point> getSpawns() {
         System.out.println("hi");
-        ArrayList<Point> spawns = new ArrayList<Point>(); 
+        ArrayList<Point> spawns = new ArrayList<Point>();
         for (int i = 0; i < GRID_WIDTH; i++) {
-            for (int j = 0; j < GRID_HEIGHT; j++) {                
-                if (tiles[i][j] == SPACE) {                    
+            for (int j = 0; j < GRID_HEIGHT; j++) {
+                if (tiles[i][j] == SPACE) {
                     int x = i;
                     int y = j;
                     Point position = new Point(x, y);
                     spawns.add(position);
-                    
+
                 }
 
             }
@@ -236,9 +236,11 @@ public class GameEngine {
      * @return A Player object representing the player in the game
      */
     private Player spawnPlayer() {
-        player = new Player(10, 10, 10);
-        int r = (int) Math.random();
-        spawns.get(r);
+        int r = (int) (Math.random() * spawns.size() + 1);
+        Point t = spawns.get(r);
+        int a = (int) t.getX();
+        int b = (int) t.getY();
+        player = new Player(10, a, b);
         return player;
     }
 
@@ -342,7 +344,17 @@ public class GameEngine {
      * current level
      */
     private Asteroid[] spawnAsteroids() {
-        return null;            //modify to return an array of Asteroid objects
+        
+        for (int i = 0; i < 10; i++) {
+            int r = (int) (Math.random() * spawns.size() + 1);
+            Point t = spawns.get(r);
+            int a = (int) t.getX();
+            int b = (int) t.getY();
+            Asteroid ast = new Asteroid(a, b);
+            
+            
+        }
+        return asteroids;
     }
 
     /**
